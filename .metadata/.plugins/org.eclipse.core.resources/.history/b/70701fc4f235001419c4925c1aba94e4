@@ -1,0 +1,56 @@
+package selenium;
+
+import java.io.BufferedWriter;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import com.thoughtworks.selenium.Selenium;
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
+
+public class Selenium_add_items {
+	Selenium selenium;
+	String url;
+	BufferedWriter out;
+	
+	public Selenium_add_items(WebDriver driver, String url) {
+		// TODO Auto-generated constructor stub
+		this.url = url;
+		driver.get(url);
+		selenium = new WebDriverBackedSelenium(driver, url);
+		
+		
+	}
+
+	public void addItems(WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+		driver.get(url+"/fi/search?q=Apple+iPad+Air++tabletti");
+		//driver.get(url+"/fi/product/39172/dqfcc/Apple-iPad-Air-64-Gt-Wi-Fi-tabletti-musta-MD787");
+		selenium.click("link=Apple-iPad-Air-64-Gt-Wi-Fi-tabletti-musta-MD787");
+		selenium.waitForPageToLoad("30000");
+		
+		driver.findElement(By.id("add")).click();
+		selenium.waitForPageToLoad("30000");
+		driver.findElement(By.id("card-order")).click();
+		selenium.waitForPageToLoad("30000");
+		
+		
+		
+		if ((driver.findElement(By.linkText("Apple iPad Air 64 Gt Wi-Fi tabletti, musta, MD787"))!= null).and.(selenium.isTextPresent("Tilauksen tekeminen")){
+			//selenium.click(link="Apple iPad Air 64 Gt Wi-Fi -tabletti, musta, MD787”);
+			selenium.waitForPageToLoad("30000");
+	    	    	System.out.println ("Pass! The item has been added to basked.");		
+		    
+	    }
+	    else{
+	    	System.out.println ("Fail! The items has not been added to baskedis.");
+	    }	
+		
+		
+
+		
+		
+	}
+
+}

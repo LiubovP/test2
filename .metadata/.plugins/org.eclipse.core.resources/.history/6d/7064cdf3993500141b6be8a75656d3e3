@@ -1,0 +1,30 @@
+package selenium;
+
+import java.io.BufferedWriter;
+
+import org.openqa.selenium.WebDriver;
+
+import com.thoughtworks.selenium.Selenium;
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
+
+public class Selenium_add_items {
+	Selenium selenium;
+	String url;
+	BufferedWriter out;
+	
+	public Selenium_add_items(WebDriver driver, String url) {
+		// TODO Auto-generated constructor stub
+		this.url = url;
+		driver.get(url);
+		selenium = new WebDriverBackedSelenium(driver, url);
+		
+		
+	}
+
+	public void addItems(WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+}

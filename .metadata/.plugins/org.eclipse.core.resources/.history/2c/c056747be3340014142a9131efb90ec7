@@ -1,0 +1,34 @@
+package selenium;
+
+import java.io.BufferedWriter;
+
+import org.openqa.selenium.WebDriver;
+
+import com.thoughtworks.selenium.Selenium;
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Selenium_items_search {
+	Selenium selenium;
+	String url;
+	BufferedWriter out;
+
+	public Selenium_items_search(WebDriver driver, String url){
+		this.url = url;
+		driver.get(url);
+		selenium = new WebDriverBackedSelenium(driver, url);
+	
+	}
+
+	public void itemsSearch_byHae(WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void itemsSearch_byMenu(WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

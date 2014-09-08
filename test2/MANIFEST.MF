@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: verkkokauppa_test.jar
+Main-Class: selenium.simple_test

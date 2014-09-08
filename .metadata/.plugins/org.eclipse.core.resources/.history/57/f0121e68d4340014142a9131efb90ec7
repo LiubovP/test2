@@ -1,0 +1,40 @@
+package selenium;
+import java.io.IOException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverBackedSelenium;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import selenium.Selenium_add_items;
+import selenium.Selenium_items_search;
+
+public class simple_test {
+	static String url = "http://www.verkkokauppa.com/";
+
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		
+		WebDriver driver = new FirefoxDriver(); 
+		driver.get(url);
+		
+		search_test(driver, url);
+		
+		//search_tietokoneet_byMenu(driver, url);
+		add_toBasket(driver, url);
+		//poista_items(driver, url);
+		
+	}
+	
+	
+    public static void search_test(WebDriver driver, String url) throws IOException, ClassNotFoundException{
+    	Selenium_items_search s_items =new Selenium_items_search(driver, url); 	
+    	s_items.itemsSearch_byHae(driver);
+    	s_items.itemsSearch_byMenu(driver);    	
+    }
+    
+    public static void add_toBasket(WebDriver driver, String url) throws IOException, ClassNotFoundException{
+    	Selenium_add_items s_addItems =new Selenium_add_items(driver, url); 	
+    	s_addItems.addItems(driver);
+    	   	
+    }
+    
+    
+}

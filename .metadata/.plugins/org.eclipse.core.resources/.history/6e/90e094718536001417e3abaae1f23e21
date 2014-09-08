@@ -1,0 +1,56 @@
+package selenium;
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebDriverBackedSelenium;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import selenium.Selenium_add_items;
+import selenium.Selenium_items_search;
+
+import com.thoughtworks.selenium.CommandProcessor;
+import com.thoughtworks.selenium.DefaultSelenium;
+
+
+public class simple_test {
+	static String url = "http://www.verkkokauppa.com";
+
+	
+		
+	public static void main(String[] args) {
+		
+		WebDriver driver = new FirefoxDriver(); 
+		driver.get(url);
+		
+		search_test(driver, url);
+		
+		//search_tietokoneet_byMenu(driver, url);
+		add_toBasket(driver, url);
+		delete_items(driver, url);
+		
+	}
+	
+	
+    private static void delete_items(WebDriver driver, String url) {
+    	Selenium_delete_items s_delItems =new Selenium_delete_items(driver, url); 
+    	s_delItems.delItems_byButton(driver);
+    	s_delItems.delItems_byCheckBox(driver);
+    	
+	}
+
+
+	public static void search_test(WebDriver driver, String url){
+    	Selenium_items_search s_items =new Selenium_items_search(driver, url); 	
+    	//s_items.itemsSearch_byHae(driver);
+    	//s_items.itemsSearch_byMenu(driver);    	
+    }
+    
+    public static void add_toBasket(WebDriver driver, String url){
+    	Selenium_add_items s_addItems =new Selenium_add_items(driver, url); 	
+    	s_addItems.addItems(driver);    	   	   	
+    }
+    
+    
+    
+    
+}
